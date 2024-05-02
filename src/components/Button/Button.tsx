@@ -1,12 +1,13 @@
-
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary'
+import React from "react";
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary";
 }
 
 const Button: React.FC<ButtonProps> = ({ variant, ...props }) => {
-  const colorClass = variant === 'primary' ? 'blue' : 'gray';
+  const colorClass = variant === "primary" ? "blue" : "red";
   return (
-    <button style={{backgroundColor:colorClass}} className={`button ${colorClass}`} {...props} >
+    <button style={{backgroundColor:colorClass}} className={`btn ${colorClass}`} {...props} onClick={props.onClick}>
       {props.children}
     </button>
   );

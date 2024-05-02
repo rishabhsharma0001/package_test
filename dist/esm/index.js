@@ -4174,9 +4174,10 @@ if (process.env.NODE_ENV === 'production') {
 
 var jsxRuntimeExports = jsxRuntime.exports;
 
-function Button() {
-    return (jsxRuntimeExports.jsx("div", { children: "Button" }));
-}
+const Button = ({ variant, ...props }) => {
+    const colorClass = variant === "primary" ? "blue" : "red";
+    return (jsxRuntimeExports.jsx("button", { className: `btn ${colorClass}`, ...props, children: props.children }));
+};
 
 function Input() {
     return (jsxRuntimeExports.jsx("div", { children: "input" }));

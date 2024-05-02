@@ -24,7 +24,7 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json', exclude: ['**/*.test.tsx', '**/*.test.ts', '**/*.stories.ts'] }),
-      postcss({ extensions: ['.css'], inject: true, extract: false }),
+      postcss({ extensions: ['.css'], inject: true, extract: false,plugins:[require('autoprefixer')] }),
     ],
   },
   {
